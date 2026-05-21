@@ -1,0 +1,14 @@
+{
+  "name": "team-task-manager",
+  "version": "1.0.0",
+  "description": "A fresh, light-aesthetic Team Task Manager app built with pure Node.js and SQLite.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
