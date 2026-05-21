@@ -306,16 +306,6 @@ function renderAuthPage(type) {
             <input type="password" id="password" name="password" class="form-control" placeholder="••••••••" required>
           </div>
           
-          ${!isLogin ? `
-            <div class="form-group">
-              <label for="role">Workspace Role</label>
-              <select id="role" name="role" class="form-control form-select" required>
-                <option value="Member" selected>Member (Standard User)</option>
-                <option value="Admin">Admin (Create projects & assign members)</option>
-              </select>
-            </div>
-          ` : ''}
-          
           <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px; padding: 12px;">
             ${isLogin ? 'Sign In' : 'Create Account'}
           </button>

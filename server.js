@@ -174,9 +174,9 @@ const server = createServer(async (req, res) => {
         return sendJSON(res, 400, { error: 'Email already registered' });
       }
 
-      // First user is Admin, others default to Member unless explicitly requested (e.g. for testing)
+      // First user is Admin, all subsequent users are automatically Members
       const userCount = db.prepare('SELECT COUNT(*) as count FROM users').get().count;
-      const assignedRole = userCount === 0 ? 'Admin' : (role === 'Admin' || role === 'Member' ? role : 'Member');
+      const assignedRole = userCount === 0 ? 'Admin' : 'Member';
 
       const passwordHash = hashPassword(password);
       const insert = db.prepare('INSERT INTO users (name, email, password_hash, role) VALUES (?, ?, ?, ?)');
