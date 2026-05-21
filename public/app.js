@@ -120,16 +120,16 @@ async function handleSignup(e) {
   const name = e.target.name.value;
   const email = e.target.email.value;
   const password = e.target.password.value;
-  const role = e.target.role.value;
   try {
-    const data = await apiRequest('/api/auth/signup', 'POST', { name, email, password, role });
+    const data = await apiRequest('/api/auth/signup', 'POST', { name, email, password });
     state.user = data.user;
     showToast('Account created successfully!');
     window.location.hash = '#/dashboard';
   } catch (err) {}
 }
 
-async function handleLogout() {
+async function handleLogout(e) {
+  if (e) e.preventDefault();
   try {
     await apiRequest('/api/auth/logout', 'POST');
     state.user = null;
